@@ -7,7 +7,7 @@
  */
 class Cart extends SausageView {
 
-    public function display() {
+    public function display($cartItems) {
         parent::displayHeader("this is the cart page");
         ?>
         <div class="loginContainer">
@@ -30,6 +30,23 @@ class Cart extends SausageView {
                     <div class="iteminfo"> 1 </div>
                 </div>
 
+<!--                --><?php
+//                //add code here to create a new row for each sausage
+//                foreach($cartItems as $cartItem){
+//                    $id = $cartItem->getId();
+//                    $img = $cartItem->getImage();
+//                    $name = $cartItem->getName();
+//                    $price = $cartItem->getPrice();
+//                    echo "<div class='productItemImage'>";
+//                    echo "<img src='",BASE_URL , $img . "' alt='". $name."'>";
+//                    echo "</div>";
+//                    echo "<h2>", $name ,"</h2>";
+//                    echo "<h4> $", $price, " </h4>";
+//                    echo "<div class='productItemButtons'>";
+//                    echo "<a href=",BASE_URL,"/welcome/details/$id>";
+//                    echo "</div>";
+//                }
+//                ?>
             </div>
             <br/>
             <a style="text-decoration: none" href='<?= BASE_URL ?>/welcome'><div class="backButton" onclick="checkout()">CHECKOUT</div></a>

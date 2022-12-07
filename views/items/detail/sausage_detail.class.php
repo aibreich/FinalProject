@@ -48,8 +48,9 @@ class Details extends SausageView
                 echo "<h6 class='detailPageItemHeat'> Heat Index:<span>", $heat , "</span></h6>";
                 echo "<h6 class='detailPageItemStock'> Stock: <span>", $stock , "</span></h6>";
                 echo "<p>", $description, "</p>";
+                echo "<form method='get' action='".BASE_URL."/welcome/cart'><button class='detailPageCartButton' name='id' value='$id'>Add to Cart</button></form>";
+
                 ?>
-                    <button class="detailPageCartButton">Add to Cart</button>
                 <a style="text-decoration: none" href='<?= BASE_URL ?>/welcome'>
                     <div class="detailPageBackButton">Back to Main Menu</div></a>
             </div>

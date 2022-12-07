@@ -18,14 +18,14 @@ class SausageIndex extends SausageView {
 
 
         ?>
-        <div id="main-header"> Movies in the Library</div>
+        <div id="main-header"> Sausages in the Library</div>
 
         <div class="grid-container">
             <?php
             if ($movies === 0) {
-                echo "No movie was found.<br><br><br><br><br>";
+                echo "No sausage was found.<br><br><br><br><br>";
             } else {
-                //display movies in a grid; six movies per row
+                //display sausages in a grid; four sausages per row
                 foreach ($movies as $movie) {
                     $id = $movie->getId();
                     $title = $movie->getTitle();

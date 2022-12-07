@@ -7,6 +7,7 @@ namespace Composer\Autoload;
 class ComposerStaticIniteb1a0619c97dc056ae46e1ca8dbe09d0
 {
     public static $classMap = array (
+        'Cart' => __DIR__ . '/../..' . '/views/items/cart/cart.php',
         'ComposerAutoloaderIniteb1a0619c97dc056ae46e1ca8dbe09d0' => __DIR__ . '/..' . '/composer/autoload_real.php',
         'Composer\\Autoload\\ClassLoader' => __DIR__ . '/..' . '/composer/ClassLoader.php',
         'Composer\\Autoload\\ComposerStaticIniteb1a0619c97dc056ae46e1ca8dbe09d0' => __DIR__ . '/..' . '/composer/autoload_static.php',

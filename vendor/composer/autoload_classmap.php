@@ -6,6 +6,7 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
+    'Cart' => $baseDir . '/views/items/cart/cart.php',
     'ComposerAutoloaderIniteb1a0619c97dc056ae46e1ca8dbe09d0' => $vendorDir . '/composer/autoload_real.php',
     'Composer\\Autoload\\ClassLoader' => $vendorDir . '/composer/ClassLoader.php',
     'Composer\\Autoload\\ComposerStaticIniteb1a0619c97dc056ae46e1ca8dbe09d0' => $vendorDir . '/composer/autoload_static.php',

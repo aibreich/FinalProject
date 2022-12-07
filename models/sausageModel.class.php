@@ -102,8 +102,34 @@ class SausageModel
         //else return false
         return false;
     }
+    
+    //Search the database for the item to add to the cart
+    public function searchID($id){
+        //Select statement for the search
+        $sql = "SELECT sausage_id, sausage_name, price FROM " . $this->tblSausage . " WHERE ".$this->tblSausage.".sausage_id =" . $id;
 
-    //search the database for movies that match words in titles. Return an array of movies if succeed; false otherwise.
+        //Execute the query
+        $query = $this->dbConnection->query($sql);
+
+        //Return false if the search failed
+        if(!query){
+            return false;
+        }
+
+        //If the search succeeded but no items were found
+        if ($query->num_rows == 0){
+            return 0;
+        }
+
+        //If the search succeeded
+        if ($query->num_rows > 0){
+            $obj = $query->fetch_object();
+            $item = [$obj->sausage_id, $obj->sausage_name, $obj->price];
+            return $item;
+        }
+    }
+
+    //search the database for items that match words in titles. Return an array of movies if succeed; false otherwise.
     public function search_items($terms) {
         $terms = explode(" ", $terms); //explode multiple terms into an array
         //select statement for AND search

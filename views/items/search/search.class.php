@@ -44,7 +44,7 @@ class Search extends SausageView
                     echo "<a href=",BASE_URL,"/welcome/details/$id>";
                     echo "<button class='productItemViewButton' >View Details</button>";
                     echo "</a>";
-                    echo "<button class='productItemCartButton'>Add to Cart</button>";
+                    echo "<button class='productItemCartButton' id='$id' onclick='addToCart(id)'>Add to Cart</button>";
                     echo "</div>";
                     echo "</div>";
 

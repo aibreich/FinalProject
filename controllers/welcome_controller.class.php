@@ -8,6 +8,7 @@
 class WelcomeController {
 
     public $item_model;
+    public $id;
 
     //default constructor
     public function __construct() {
@@ -25,9 +26,13 @@ class WelcomeController {
     
      //cart page
     public function cart() {
+        //Query
+        $id = isset($_GET["id"]) ? $_GET["id"] : null;
+        $item = array();
+        array_push($item, $this->item_model->searchID($id));
         //display
         $view = new Cart();
-        $view->display();
+        $view->display($item);
     }
     
     //create
@@ -88,19 +93,19 @@ class WelcomeController {
         $view->display($item);
     }
 
-    //search movies
+    //search sausages
     public function search() {
         //retrieve query terms from search form
 
         $query_terms = isset($_GET["query-terms"]) ? trim($_GET["query-terms"]) : "" ;
 
 
-        //if search term is empty, list all movies
+        //if search term is empty, list all sausages
         if ($query_terms == " ") {
             $this->index();
         }
 
-        //search the database for matching movies
+        //search the database for matching sausages
         $items = $this->item_model->search_items($query_terms);
 
         if ($items === false) {
@@ -109,7 +114,7 @@ class WelcomeController {
             $this->error($message);
             return;
         }
-        //display matched movies
+        //display matched sausages
         $search = new Search();
         $search->display($query_terms, $items);
     }
@@ -119,7 +124,7 @@ class WelcomeController {
         $query_terms = urldecode(trim($terms));
         $items = $this->item_model->search_items($query_terms);
 
-        //retrieve all movie titles and store them in an array
+        //retrieve all sausage names and store them in an array
         $titles = array();
         if ($items) {
             foreach ($items as $item) {

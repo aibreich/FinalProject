@@ -55,7 +55,8 @@ class WelcomeIndex extends SausageView {
                 echo "<a href=",BASE_URL,"/welcome/details/$id>";
                 echo "<button class='productItemViewButton' >View Details</button>";
                 echo "</a>";
-                echo "<button class='productItemCartButton' id='$id' onclick='addToCart(id)'>Add to Cart</button>";
+                echo "<form class='productItemCartButtonF'  method='get' action='".BASE_URL."/welcome/cart?id=$id'>
+                            <button class='productItemCartButton' name='id' value='$id' type='submit'>Add to Cart</button></form>";
                 echo "</div>";
                 echo "</div>";
             }
