@@ -7,7 +7,11 @@
  */
 class Cart extends SausageView {
 
+
     public function display($cartItems) {
+        $id = $cartItems[0][0];
+        $sausageName = $cartItems[0][1];
+        $price = $cartItems[0][2];
         parent::displayHeader("this is the cart page");
         ?>
         <div class="loginContainer">
@@ -18,6 +22,7 @@ class Cart extends SausageView {
                 <div class="tableName">Quantity</div>
             </div>
 
+
             <div class="tableItems">
                 <div class="tableItem">
                     <div class="iteminfo">Item name</div>
@@ -25,28 +30,27 @@ class Cart extends SausageView {
                     <div class="iteminfo"> 1 </div>
                 </div>
                 <div class="tableItem">
-                    <div class="iteminfo">Item name</div>
-                    <div class="iteminfo"> $0.00</div>
-                    <div class="iteminfo"> 1 </div>
+                    <?php
+
+                    //add code here to create a new row for each sausage
+                    foreach($cartItems as $cartItem){
+
+
+
+                        echo "<div class=`iteminfo`>", $cartItem[1] ,"</div>";
+                        echo "<div class=`iteminfo`> $", $cartItem[2] , "</div>";
+                                    echo "<div class=`iteminfo`> ", $cartItem[0] , "</div>";
+
+
+                    }
+                    //To choose an array item within an array, do array[0][0]
+                    //echo $cartItems;
+                    //                echo $cartId;
+                    ?>
                 </div>
 
-<!--                --><?php
-//                //add code here to create a new row for each sausage
-//                foreach($cartItems as $cartItem){
-//                    $id = $cartItem->getId();
-//                    $img = $cartItem->getImage();
-//                    $name = $cartItem->getName();
-//                    $price = $cartItem->getPrice();
-//                    echo "<div class='productItemImage'>";
-//                    echo "<img src='",BASE_URL , $img . "' alt='". $name."'>";
-//                    echo "</div>";
-//                    echo "<h2>", $name ,"</h2>";
-//                    echo "<h4> $", $price, " </h4>";
-//                    echo "<div class='productItemButtons'>";
-//                    echo "<a href=",BASE_URL,"/welcome/details/$id>";
-//                    echo "</div>";
-//                }
-//                ?>
+
+
             </div>
             <br/>
             <a style="text-decoration: none" href='<?= BASE_URL ?>/welcome'><div class="backButton" onclick="checkout()">CHECKOUT</div></a>

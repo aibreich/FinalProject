@@ -36,7 +36,7 @@ class Details extends SausageView
                 <div class="detailPageProductImage">
                     <?php
                     $img = $sausage->getImage();
-                    echo "<img src='",BASE_URL , $img . "' alt='". $sausage->getName()."'>";
+                    echo "<img class='detailPageProductImage' src='",BASE_URL , $img . "' alt='". $sausage->getName()."'>";
                     ?>
                 </div>
             </div>

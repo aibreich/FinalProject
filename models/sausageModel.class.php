@@ -106,13 +106,13 @@ class SausageModel
     //Search the database for the item to add to the cart
     public function searchID($id){
         //Select statement for the search
-        $sql = "SELECT sausage_id, sausage_name, price FROM " . $this->tblSausage . " WHERE ".$this->tblSausage.".sausage_id =" . $id;
+        $sql = "SELECT sausage_id, sausage_name, price FROM " . $this->tblSausage . " WHERE sausage_id = $id";
 
         //Execute the query
         $query = $this->dbConnection->query($sql);
 
         //Return false if the search failed
-        if(!query){
+        if(!$query){
             return false;
         }
 
@@ -123,9 +123,13 @@ class SausageModel
 
         //If the search succeeded
         if ($query->num_rows > 0){
-            $obj = $query->fetch_object();
-            $item = [$obj->sausage_id, $obj->sausage_name, $obj->price];
-            return $item;
+            $cartItem = $query->fetch_array();
+//            $item = [ $obj->sausage_id, $obj->sausage_name, $obj->price];
+            //$cartItem[] = $;
+
+
+//            $i = implode(" ", $item);
+            return $cartItem;
         }
     }
 
