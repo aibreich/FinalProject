@@ -37,7 +37,7 @@ class SausageView {
             </div>
             <div id="right">
                 <a href='<?= BASE_URL ?>/welcome/login'><button class="loginInButton"> Login In</button></a>
-                <a href='<?= BASE_URL ?>/welcome/cart'><button class="loginInButton"> Cart</button></a>
+<!--                <a href='--><?//= BASE_URL ?><!--/welcome/cart'><button class="loginInButton"> Cart</button></a>-->
 
             </div>
             <div href="<?= BASE_URL ?>/index.php" style="text-decoration: none" title="One Stop Sausage">

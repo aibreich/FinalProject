@@ -287,6 +287,7 @@ img {
 }
 .detailPageBackButton{
     font-family: Gadugi;
+    text-decoration: none;
     width: 200px;
     height: 40px;
     background-color: #3366CC;
@@ -388,6 +389,7 @@ form{
 }
 .backButton{
     font-family: Gadugi;
+    text-decoration: none;
     width: 200px;
     height: 40px;
     background-color: #3366CC;
@@ -425,7 +427,6 @@ form{
     bottom: 34px;
     right: 50px;
 }
-
 
 /*=================Cart Page Styling=========================*/
 .tableNames{
@@ -465,4 +466,19 @@ form{
     font-size: 14px;
     padding-left: 6px;
     height: 70px;
+    /*background-color: #ff6600;*/
+}
+
+.iteminfo{
+    text-align: left;
+    /*background-color: firebrick;*/
+    width: 170px;
+    padding-right: 15px;
+    margin-top: 10px;
+}.iteminfo2{
+    text-align: right;
+    /*background-color: firebrick;*/
+    width: 170px;
+    padding-right: 15px;
+    margin-top: 10px;
 }

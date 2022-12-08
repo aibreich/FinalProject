@@ -12,6 +12,7 @@ class Cart extends SausageView {
         $id = $cartItems[0][0];
         $sausageName = $cartItems[0][1];
         $price = $cartItems[0][2];
+        $empty = 0;
         parent::displayHeader("this is the cart page");
         ?>
         <div class="loginContainer">
@@ -24,36 +25,39 @@ class Cart extends SausageView {
 
 
             <div class="tableItems">
-                <div class="tableItem">
-                    <div class="iteminfo">Item name</div>
-                    <div class="iteminfo"> $0.00</div>
-                    <div class="iteminfo"> 1 </div>
-                </div>
-                <div class="tableItem">
+
+
                     <?php
+
+                    $total = 0;
 
                     //add code here to create a new row for each sausage
                     foreach($cartItems as $cartItem){
+                        $total = $total + $cartItem[2];
 
-
-
-                        echo "<div class=`iteminfo`>", $cartItem[1] ,"</div>";
-                        echo "<div class=`iteminfo`> $", $cartItem[2] , "</div>";
-                                    echo "<div class=`iteminfo`> ", $cartItem[0] , "</div>";
-
+                        echo "<div class=tableItem>";
+                        echo "<div class=iteminfo>", $cartItem[1] ,"</div>";
+                        echo "<div class=iteminfo2> $", $cartItem[2] , "</div>";
+//                        echo "<div class=iteminfo>", $cartItem[0] , "</div>";
+                        echo "<input value='1'/>";
+                        echo "</div>";
 
                     }
+                     echo "<h2> Total: $" , $total , "</h2>";
+
                     //To choose an array item within an array, do array[0][0]
                     //echo $cartItems;
                     //                echo $cartId;
                     ?>
-                </div>
+
 
 
 
             </div>
             <br/>
-            <a style="text-decoration: none" href='<?= BASE_URL ?>/welcome'><div class="backButton" onclick="checkout()">CHECKOUT</div></a>
+                <a style="text-decoration: none" href="<?= BASE_URL?>/welcome/checkout"><div class="backButton">CHECKOUT</div></a>
+
+
             <a style="text-decoration: none" href='<?= BASE_URL ?>/welcome'><div class="backButton"><- Back to Home</div></a>
         </div>
         <?php

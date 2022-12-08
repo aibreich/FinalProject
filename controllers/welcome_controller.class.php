@@ -7,17 +7,21 @@
  */
 class WelcomeController {
 
-    private $cartArray;
+//    static private $cartArray;
     public $item_model;
     public $id;
+    public $empty;
 
     //default constructor
     public function __construct() {
         session_start();
         //create an instance of the MovieModel class
         $this->item_model = SausageModel::getSausageModel();
-        $this->cartArray = array();
-        $_SESSION['cartArray'] = $this->cartArray;
+//        self::$cartArray = array();
+        if(!isset($_SESSION['cartArray'])) {
+            $_SESSION['cartArray'] = [];
+        }
+
     }
 
     //index
@@ -32,10 +36,18 @@ class WelcomeController {
     public function cart() {
         //Query
         $id = isset($_GET["id"]) ? $_GET["id"] : null;
-        array_push($_SESSION['cartArray'], $this->item_model->searchID($id));
+        $_SESSION['cartArray'][] = $this->item_model->searchID($id);
+//        self::$cartArray[] = $this->item_model->searchID($id);
         //display
         $view = new Cart();
         $view->display($_SESSION['cartArray']);
+    }
+
+    //checkout
+    public function checkout() {
+        $_SESSION['cartArray'] = [];
+        $view = new Checkout();
+        $view->display();
     }
     
     //create
